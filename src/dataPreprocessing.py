@@ -13,8 +13,8 @@ data_preprocessing['TotalCharges'] = pd.to_numeric(data_preprocessing['TotalChar
 data_preprocessing = data_preprocessing.dropna(subset=['TotalCharges'])
 
 # Define features and target variable
-X = data_preprocessing.drop(columns=['Churn', 'customerID'])  # Dropping 'customerID' as it's not a useful feature
-y = data_preprocessing['Churn'].apply(lambda x: 1 if x == 'Yes' else 0)  # Encoding target variable
+X = data_preprocessing.drop(columns=['Churn', 'customerID'])  
+y = data_preprocessing['Churn'].apply(lambda x: 1 if x == 'Yes' else 0)
 
 # Define numerical and categorical features
 numerical_features = X.select_dtypes(include=['int64', 'float64']).columns.tolist()
